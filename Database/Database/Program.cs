@@ -22,10 +22,13 @@ namespace Database
                 {
                     Console.WriteLine("-- enter command");
                     var input = Console.ReadLine();
+                    
+                    if(input.ToLowerInvariant() == "exit")
+                        return;
 
-                    Console.WriteLine();
-                    var response = core.QueryAsync(input).GetAwaiter().GetResult();
                     Console.WriteLine("--");
+                    var response = core.QueryAsync(input).GetAwaiter().GetResult();
+                    Console.WriteLine();
 
                     Console.WriteLine(response);
                     Console.WriteLine();
