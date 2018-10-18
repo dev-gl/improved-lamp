@@ -7,19 +7,26 @@ namespace Database
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Database running");
+            Console.WriteLine("Database loading");
 
             var core = new EngineCore();
+
+            core.Load();
+
+            Console.WriteLine("Database running");
 
             while (true)
             {
 
                 try
                 {
+                    Console.WriteLine("-- enter command");
                     var input = Console.ReadLine();
 
                     Console.WriteLine();
                     var response = core.QueryAsync(input).GetAwaiter().GetResult();
+                    Console.WriteLine("--");
+
                     Console.WriteLine(response);
                     Console.WriteLine();
                 }
