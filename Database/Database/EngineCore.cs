@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Lamp
+namespace Database
 {
     public class EngineCore : IEngineCore
     {
@@ -10,6 +10,7 @@ namespace Lamp
 
         public async Task<string> QueryAsync(string queryText)
         {
+
             return await Task.FromResult("No Results Found");
         }
     }
