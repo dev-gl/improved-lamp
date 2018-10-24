@@ -11,7 +11,7 @@ Basic REPL
 ## Example Table
 Table: Scores  
 
-| ID | Name | Score |  
+| ID-Generated | Name | Score |  
 | :---: | :---: | :---: |  
 | INT | STRING | INT |  
 
