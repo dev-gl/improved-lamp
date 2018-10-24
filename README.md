@@ -10,7 +10,7 @@ Basic REPL
 
 ## Example Table
 Table: Scores  
-| ID,Generated | Name | Score |
+| ID | Name | Score |
 | :---: | :---: | :---: |
 | INT | STRING | INT |
 
