@@ -10,9 +10,9 @@ Basic REPL
 
 ## Example Table
 Table: Scores  
-| ID | Name | Score |
-| :---: | :---: | :---: |
-| INT | STRING | INT |
+| ID | Name | Score |  
+| :---: | :---: | :---: |  
+| INT | STRING | INT |  
 
 ## Basic Queries
 
