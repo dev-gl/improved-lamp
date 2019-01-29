@@ -8,6 +8,11 @@ namespace Database
         {
         }
 
+        public void Destroy()
+        {
+
+        }
+
         public async Task<string> QueryAsync(string queryText)
         {
 
