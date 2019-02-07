@@ -13,10 +13,9 @@ namespace Database
 
         }
 
-        public async Task<string> QueryAsync(string queryText)
+        public string Query(string queryText)
         {
-
-            return await Task.FromResult("No Results Found");
+            return "No Results Found";
         }
     }
 }

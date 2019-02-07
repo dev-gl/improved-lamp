@@ -26,7 +26,7 @@ namespace Database
                         return;
 
                     Console.WriteLine("--");
-                    var response = core.QueryAsync(input).GetAwaiter().GetResult();
+                    var response = core.Query(input);
                     Console.WriteLine();
 
                     Console.WriteLine(response);

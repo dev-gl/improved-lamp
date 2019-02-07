@@ -5,6 +5,6 @@ namespace Database
     public interface IEngineCore
     {
         void Load();
-        Task<string> QueryAsync(string queryText);
+        string Query(string queryText);
     }
 }
