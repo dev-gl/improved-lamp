@@ -15,7 +15,8 @@ namespace Graph.Core
         private Queue<IPayload<T>> _buffer = new Queue<IPayload<T>>();
         private Task _internalTask;
 
-        public GraphEngine(IGraphSourcer<T> source, IGraphFeed<T2> output, IGraphRunner<T, T2> graphRunner, CancellationToken cancellationToken)
+        public GraphEngine(IGraphSourcer<T> source, IGraphFeed<T2> output, IGraphRunner<T, T2> graphRunner,
+            CancellationToken cancellationToken)
         {
             _cancellationToken = cancellationToken;
             Source = source;
@@ -24,7 +25,7 @@ namespace Graph.Core
 
             _internalTask = Run();
         }
-        
+
         private async Task Run()
         {
             while (!_cancellationToken.IsCancellationRequested)
