@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Graph.Core\Graph.Core.csproj" />
+    <ProjectReference Include="..\graph\graph.csproj" />
   </ItemGroup>
 
 </Project>

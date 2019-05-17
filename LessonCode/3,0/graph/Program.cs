@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using System.Threading.Tasks;
 using Graph.Core;
 
 namespace graph
@@ -12,44 +11,24 @@ namespace graph
         {
             var cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(30));
 
-            var graphSourcer = new GraphSourcer<int>();
-            var graphFeed = new GraphFeed<int>();
-            var graphRunner = new GraphRunner<int, int>();
-            
-            var graphEngine = new GraphEngine<int, int>(graphSourcer, graphFeed, graphRunner, cancellationTokenSource.Token);
+            var graphSourcer = new AddableGraphSourcer<double>(1);
+            var graphFeed = new GraphFeed<double>();
+            var graphRunner = new BasicBitchMathGraphRunner(new List<IMathNode>());
 
-            Thread.Sleep(TimeSpan.FromSeconds(30));
+            var graphEngine = new GraphEngine<double, double>(graphSourcer, graphFeed, graphRunner, cancellationTokenSource.Token);
 
             var results = graphFeed.GetComputedPayloadsAsync().Result;
         }
     }
 
-    internal class GraphFeed<T> : IGraphFeed<T>
+    public class DefaultPayload<T> : IPayload<T>
     {
-        public Task EnqueueAsync(IPayload<T> payload)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<IPayload<T>>> GetComputedPayloadsAsync()
-        {
-            throw new NotImplementedException();
-        }
+        public T Data { get; set; }
     }
 
-    internal class GraphSourcer<T> : IGraphSourcer<T>
+    public class ErroredPayload<T> : IPayload<T>
     {
-        public Task<IEnumerable<IPayload<T>>> GetPayloadsAsync()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    internal class GraphRunner<T, T2> : IGraphRunner<T, T2>
-    {
-        public Task<IPayload<T2>> ComputeAsync(IPayload<T> input)
-        {
-            throw new NotImplementedException();
-        }
+        public T Data { get; set; }
+        public string ErrorMessage { get; set; }
     }
 }
